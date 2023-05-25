@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Spring boot </title>
+    <meta charset="UTF-8"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     </link>
+</head>
+<body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <div class="container"> <!-- Agregar una clase "container" para aplicar estilos de Bootstrap -->
+        <a th:href="@{/new}" class="btn btn-primary">Nuevo </a> 
+        <table class="table table-striped"> <!-- Agregar las clases "table" y "table-striped" para estilizar la tabla -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombres</th>
+                    <th>TELEFONO</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="persona : ${personas}">
+                    <td th:text="${persona.id}"></td>
+                    <td th:text="${persona.name}"></td>
+                    <td th:text="${persona.telefono}"></td>
+                    <td>
+                        <a th:href="@{/editar/}+${persona.id}" class="btn btn-primary">Editar</a> <!-- Agregar la clase "btn" y "btn-primary" para estilizar los botones -->
+                        <a th:onclick="eliminar([[${persona.id}]])"  class="btn btn-danger">Eliminar</a> <!-- Agregar la clase "btn" y "btn-danger" para estilizar los botones -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="funciones.js"></script>
+
+
+</body>
+
+</html>

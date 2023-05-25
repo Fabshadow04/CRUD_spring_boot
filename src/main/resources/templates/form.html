@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Spring boot </title>
+        <meta charset="UTF-8"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        </link>
+    </head>
+    <body>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <div class="container"> <!-- Agregar una clase "container" para aplicar estilos de Bootstrap -->
+
+
+            <div class="col-sm-6">
+                
+                <form th:action="@{/save}" th:object="${persona}" method="POST">
+                <div class="card">
+                    <div class="card-header">
+
+<h3>Agregar persona </h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="form-group"> 
+                            <label>id</label>
+                            <input th:field="*{id}" type="text" class="form-control"/>
+                            
+                            
+                            <label>Nombre</label>
+                            <input th:field="*{name}" type="text" class="form-control"/>
+                            
+                            
+                            <label>Telefono</label>
+                            <input th:field="*{telefono}" type="text" class="form-control"/>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+
+                        <input type="submit" value="Guardar" class="btn btn-success" />
+                    </div>
+
+                </div>
+                    
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
